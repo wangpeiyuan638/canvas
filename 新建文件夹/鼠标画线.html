@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			onload = function(){
+				var can = document.getElementById('can');
+				var canvas = can.getContext('2d');
+				can.style.background = 'red';
+				can.onmousedown = function(ev){
+					var oEvent = ev || event;
+					canvas.moveTo(oEvent.clientX-can.offsetLeft,oEvent.clientY-can.offsetTop);
+					onmousemove = function(ev){
+						var oEvent = ev || event;
+						canvas.lineTo(oEvent.clientX-can.offsetLeft,oEvent.clientY-can.offsetTop);
+						canvas.stroke();
+					}
+					onmouseup = function(){
+						onmousemove = null;
+						onmouseup = null;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="can" width="600" height="600"></canvas>
+	</body>
+</html>

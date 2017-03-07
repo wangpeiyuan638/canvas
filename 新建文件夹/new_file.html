@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<script>
+		onload = function(){
+			var can = document.getElementById('can');
+			var canvas = can.getContext('2d');
+			can.style.background = 'honeydew';
+			canvas.fillStyle = 'red';
+			canvas.strokeStyle = 'blue';
+			canvas.lineWidth = 10;
+			canvas.lineJoin = 'bevel';
+			canvas.fillRect(100,100,100,100);//填充写在后面会覆盖部分边框
+			canvas.strokeRect(100,100,100,100);
+			canvas.beginPath();
+			canvas.moveTo(400,400);
+			canvas.lineTo(500,500);
+			canvas.lineTo(300,100);
+			canvas.closePath();
+			canvas.stroke();
+			canvas.fill();
+//			closePath()
+		}
+			
+		</script>
+	</head>
+	<body>
+		<canvas id="can" width="600" height="600">
+			
+		</canvas>
+	</body>
+</html>
